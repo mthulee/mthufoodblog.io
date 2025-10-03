@@ -24,3 +24,40 @@
         <input type="checkbox" title="Transparent" name="transparentBg" condition="bg.type === 'color'" checked>
         <header condition="bg.type === 'video'">Fallback Image</header>
         <input type="image" title="Fallback Image" value="../_images/background1.jpg" name="fallBackImage" condition="bg.type === 'video'">
+        <input type="checkbox" title="Overlay" name="overlay" condition="bg.type !== 'color'">
+        <input type="color" title="Overlay Color" name="overlayColor" value="#fff4e7" condition="overlay && bg.type !== 'color'">
+        <input type="range" inline title="Opacity" name="overlayOpacity" min="0" max="1" step="0.1" value="0.8" condition="overlay && bg.type !== 'color'">
+    </mbr-parameters>
+
+    <div class="mbr-fallback-image disabled" mbr-if="bg.type == 'video'"></div>
+    <div class="mbr-overlay" mbr-if="overlay && bg.type !== 'color'" opacity="{{overlayOpacity}}" bg-color="{{overlayColor}}"></div>
+
+    <div mbr-class="{'container': !fullWidth, 'container-fluid': fullWidth}">
+        <div class="row">
+            <div class="col-12">
+                <div class="content-wrapper">
+                    <h2 class="mbr-section-title mbr-fonts-style" data-app-selector=".mbr-section-title, .mbr-section-btn, .address-wrapper" mbr-theme-style="display-1" mbr-if="showTitle">Flavor Central</h2>
+                    <div class="text-wrapper">
+						<p class="mbr-text mbr-fonts-style" mbr-theme-style="display-7" mbr-if="showText" data-app-selector=".mbr-text, .text-wrapper">Your ultimate food inspiration hub. Get cooking!</p>
+					</div>
+                    <div mbr-buttons="" mbr-theme-style="display-4" class="mbr-section-btn" mbr-if="showButtons" data-toolbar="-mbrBtnMove">
+                        <a class="btn btn-primary" href="https://mobiri.se" data-app-placeholder="Type Text">
+                            <span class="mobi-mbri mobi-mbri-right mbr-iconfont mbr-iconfont-btn"></span>
+                            Find Recipes
+                        </a>
+                        <a class="btn btn-secondary" href="https://mobiri.se" data-app-placeholder="Type Text">Submit Recipe</a>
+                    </div>
+					<div class="address-wrapper" mbr-if="showAddress || showHours">
+						<div class="address-wrap">
+							<span class="line-wrap"></span>
+							<div class="text-wrap">
+								<p class="mbr-address mbr-fonts-style" mbr-theme-style="display-4" mbr-if="showAddress" data-app-selector=".mbr-address">123 Flavor Lane, Gastronomy City</p>
+								<p class="mbr-hours mbr-fonts-style" mbr-theme-style="display-7" mbr-if="showHours" data-app-selector=".mbr-hours">Always Open (for hungry souls)</p>
+							</div>
+						</div>
+					</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
