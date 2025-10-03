@@ -1,0 +1,98 @@
+& when not (@fullScreen) {
+  padding-top: (@paddingTop * 1rem);
+  padding-bottom: (@paddingBottom * 1rem);
+}
+& when (@bg-type = "color") {
+  background-color: if(@transparentBg, transparent, @bg-value);
+}
+& when (@bg-type = 'image') {
+  background-image: url(@bg-value);
+}
+.mbr-fallback-image.disabled {
+  display: none;
+}
+.mbr-fallback-image {
+  display: block;
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  & when (@bg-type = 'video') {
+    background-image: url(@fallBackImage);
+  }
+}
+.content-wrapper {
+  .mbr-section-title {
+    margin-bottom: 32px;
+  }
+  .text-wrapper {
+    .mbr-text {
+      display: inline-block;
+      width: 30%;
+      margin-bottom: 32px;
+      @media (max-width: 1440px) {
+        width: 50%;
+      }
+      @media (max-width: 992px) {
+        width: 100%;
+      }
+    }
+  }
+  .address-wrapper {
+    margin-top: 120px;
+    @media (max-width: 992px) {
+      margin-top: 32px;
+    }
+    .address-wrap {
+      display: inline-grid;
+      grid-template-columns: 6px 1fr;
+      gap: 24px;
+      padding: 16px 40px 16px 10px;
+      background-color: @cardBg;
+      box-shadow: 0 19px 45px 0 #0000001a;
+      @media (max-width: 992px) {
+        padding: 10px 20px 10px 10px;
+        gap: 16px;
+      }
+      .line-wrap {
+        width: 6px;
+        height: 100%;
+        border-radius: 10px;
+        background-color: @line;
+        @media (max-width: 992px) {
+          width: 4px;
+        }
+      }
+      .text-wrap {
+        padding: 10px 0;
+        .mbr-address {
+          margin-bottom: 4px;
+        }
+        .mbr-hours {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+.mbr-section-title {
+  color: #000c3f;
+}
+.mbr-text, .text-wrapper {
+  color: #522514;
+  text-align: center;
+}
+.mbr-section-title, .mbr-section-btn, .address-wrapper {
+  text-align: center;
+  color: #522514;
+}
+.mbr-address {
+  color: #522514;
+  text-align: left;
+}
+.mbr-hours {
+  color: #522514;
+  text-align: left;
+}
