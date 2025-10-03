@@ -1,0 +1,26 @@
+<section data-bs-version="5.1" class="header01 paintm5" group="Headers" data-bg-video="{{bg.type == 'video' && bg.value.url}}" mbr-class="{
+    'mbr-fullscreen': fullScreen,
+    'mbr-parallax-background': bg.parallax}">
+    <mbr-parameters>
+        <header>Size</header>
+        <input type="checkbox" title="Full Screen" name="fullScreen" checked>
+        <input type="checkbox" title="Full Width" name="fullWidth" checked>
+        <input type="range" inline title="Top" name="paddingTop" min="0" max="12" step="1" value="5" condition="fullScreen == false">
+        <input type="range" inline title="Bottom" name="paddingBottom" min="0" max="12" step="1" value="5" condition="fullScreen == false">
+        <header>Show/Hide</header>
+        <input type="checkbox" title="Title" name="showTitle" checked>
+        <input type="checkbox" title="Text" name="showText" checked>
+        <input type="checkbox" title="Buttons" name="showButtons" checked>
+        <input type="checkbox" title="Address" name="showAddress" checked>
+        <input type="checkbox" title="Hours" name="showHours" checked>
+        <input type="color" title="Card BG" value="#ffffff" name="cardBg" condition="showAddress || showHours" selected>
+        <input type="color" title="Line Color" value="#333333" name="line" condition="showAddress || showHours" selected>
+        <header>Background</header>
+        <fieldset type="background" name="bg" parallax>
+            <input type="image" title="Image" value="../_images/background1.jpg">
+            <input type="color" title="Color" value="#fff4e7" selected>
+            <input type="video" title="Video" value="https://vimeo.com/428046504">
+        </fieldset>
+        <input type="checkbox" title="Transparent" name="transparentBg" condition="bg.type === 'color'" checked>
+        <header condition="bg.type === 'video'">Fallback Image</header>
+        <input type="image" title="Fallback Image" value="../_images/background1.jpg" name="fallBackImage" condition="bg.type === 'video'">
